@@ -1,0 +1,61 @@
+/* Stili comuni per l'area di amministrazione */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #34495e;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 50px;
+    max-width: 100px;
+    margin-right: 10px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    text-decoration: none; /* Rimuove il sottolineato */
+}
+
+.header-buttons button {
+    background-color: #27ae60;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Rimuove il sottolineato */
+}
+
+.header-buttons button:hover {
+    background-color: #219150;
+}
+
+/* Aggiustamento dell'orario */
+.clock {
+    margin-top: 5px; /* Modifica del margine superiore */
+    margin-left: 20px;
+    font-family: 'Lucida Console', 'Courier New', monospace;
+    font-size: 18px;
+}
+
+/* Rimozione degli stili di link cliccabile */
+.header-buttons a {
+    text-decoration: none; /* Rimuove il sottolineato */
+    color: inherit; /* Utilizza il colore del testo predefinito */
+    cursor: default; /* Rimuove il cursore pointer */
+}

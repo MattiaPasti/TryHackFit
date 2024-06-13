@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='imgs/site2.png') }}" />
+        <title>TryHackFit - FitStic</title>
+        <link href="{{ url_for('static', filename='css/signin.css') }}" type="text/css" rel="stylesheet">
+        <script src="{{ url_for('static', filename='js/signin.js') }}" defer></script>
+
+    </head>
+
+    <body>
+
+        {% include 'common.html' %}
+
+        <div><br></br></div>
+        <h2 class="registration-title">Registrazione</h2>
+
+        {% if msg != "" %}
+            {% if msg != "Registrazione completata con successo!" %}
+                <div id="email-status" class="email-not-valid" style="background-color: #ffcccc; border: 1px solid #ff0000; padding: 10px; border-radius: 5px; width: fit-content; margin: 10px auto;">
+                    <p class="error">{{ msg }}</p>
+                </div>
+            {% else %}
+                <div id="email-status" class="success-message" style="background-color: #30d58b; border: 1px solid #057122; padding: 10px; border-radius: 5px; width: fit-content; margin: 10px auto;">
+                    <p>{{ msg }}</p>
+                </div>
+            {% endif %}
+        {% endif %}
+
+        <form action="{{ url_for('signin') }}" method="post">
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" oninput="checkEmail()">
+            <div id="email-status" class="email-not-valid"></div>            
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" oninput="checkPassword()">
+            <div id="password-status"></div>
+            <div id="password-length"></div>
+            <div id="password-uppercase"></div>
+            <div id="password-number"></div>
+            <div id="password-special"></div>
+
+            <label for="confirm-password">Conferma Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" oninput="checkPassword()">
+            <div id="confirm-password-status"></div>
+
+            <input type="submit" id="register-btn" value="Registrati" disabled>
+
+        </form>
+
+    </body>
+
+</html>

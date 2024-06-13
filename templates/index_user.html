@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='imgs/site2.png') }}" />
+    <title>TryHackFit - Fitstic</title>
+    <link href="{{ url_for('static', filename='css/index_user.css') }}" type="text/css" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/index_user.js') }}" defer></script>
+    <link href="{{ url_for('static', filename='css/index.css') }}" type="text/css" rel="stylesheet">
+</head>
+
+{% include 'common_user.html' %}
+
+<body>
+    
+    {% if msg != "" %}
+        <div id="email-status" class="success-message" style="background-color: #30d58b; border: 1px solid #057122; padding: 10px; border-radius: 5px; width: fit-content; margin: 10px auto;">
+            <p>{{ msg }}</p>
+        </div>
+    {% endif %}
+
+    <div class="container">
+        <div class="border" style="text-align: center;">
+            <h2>Generatore di Password</h2>
+            <form id="passwordForm" action="{{ url_for('save') }}" method="post">
+
+                <label for="name">Nome:</label>
+                <span><br></span>
+                <input type="text" id="name" name="name" required>
+
+                
+                <label for="length">Lunghezza della password:</label>
+                <span><br></span>
+                <div class="user">
+                    <input type="range" id="length" name="length" min="9" max="35" value="9" oninput="updateLength()">
+                    <span id="length-info"></span>
+                </div>
+                <br>
+
+                <div class="user">
+                    <label for="uppercase">Includi maiuscole:</label>
+                    <input type="checkbox" id="uppercase" name="uppercase">
+                </div>
+
+                <div class="user">
+                    <label for="numeric">Includi numeri:</label>
+                    <input type="checkbox" id="numeric" name="numeric">
+                </div>
+
+                <div class="user">
+                    <label for="special">Includi caratteri speciali:</label>
+                    <input type="checkbox" id="special" name="special">
+                </div>
+
+                <div class="user">
+                    <input type="text" id="password" name="password" style="text-align: center;" min="9" required>
+                    </div>
+                <button type="button" id="register-btn" onclick="generatePassword()">Genera Password</button>
+
+                <input type="submit" id="register-btn" value="Salva">
+
+            </form>
+        </div>
+    </div>
+
+    <div class="border saved-passwords">
+        <h2 class="centered">Passwords Salvate</h2>
+        <ul>
+            {% for password in passwords %}
+                <li class="user" style="text-align: center;">
+                    <span class="role" style="text-align: center;">{{ password[1] }}</span>
+                    <input type="password" class="saved-password" value="{{ password[2] }}" readonly>
+                    
+                    <div class="button-group">
+                        <button type="button" class="action-button toggle-password">Mostra</button>
+                        <button type="button" class="action-button copy-password">Copia</button>
+                    </div>
+                    
+                    <a href="{{ url_for('delete_password', id=password[0]) }}" class="action-button delete-button">Elimina</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+                
+</body>
+</html>

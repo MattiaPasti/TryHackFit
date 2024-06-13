@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='imgs/site2.png') }}" />
+    <title>TryHackFit - Fitstic</title>
+    <link href="{{ url_for('static', filename='css/index_admin.css') }}" type="text/css" rel="stylesheet">
+</head>
+
+{% include 'common_admin.html' %}
+
+<body>
+    
+    {% if msg != "" %}
+        <div id="email-status" class="success-message" style="background-color: #30d58b; border: 1px solid #057122; padding: 10px; border-radius: 5px; width: fit-content; margin: 10px auto;">
+            <p>{{ msg }}</p>
+        </div>
+    {% endif %}
+
+    <div class="border">
+        <h2>Utenti registrati</h2>
+        <ul>
+            {% for profile in profiles %}
+                <li class="user">
+                    <span class="username">{{ profile[1] }}</span>
+                    <span class="role">{{ profile[2] }}</span>
+                    
+                    {% if profile[2] == "Admin" %}
+                        <a href="{{ url_for('manage_user', user_id=profile[0]) }}" class="action-button">Declassa ad Utente</a> 
+                    {% else %}
+                        <a href="{{ url_for('manage_user', user_id=profile[0]) }}" class="action-button">Promuovi ad Admin</a>
+                    {% endif %}
+                    
+                    <a href="{{ url_for('delete_user', user_id=profile[0]) }}" class="action-button">Elimina</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+                
+</body>
+</html>

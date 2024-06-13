@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='imgs/site2.png') }}" />
+        <title>TryHackFit - Fitstic</title>
+        <link href="{{ url_for('static', filename='css/login.css') }}" type="text/css" rel="stylesheet">
+        <!-- <script src="{{ url_for('static', filename='js/login.js') }}" defer></script> -->
+
+    </head>
+
+    <body>
+
+        {% include 'common.html' %}
+
+        {% if msg != "" %}
+            {% if msg == "Utente non registrato" %}
+                <div id="email-status" class="email-not-valid" style="background-color: #bb5252; border: 1px solid #ff0000; padding: 10px; border-radius: 5px; width: fit-content; margin: 10px auto;">
+                    <p class="error">{{ msg }}</p>
+                </div>
+            {% else %}
+                <div id="email-status" class="success-message" style="background-color: #30d58b; border: 1px solid #057122; padding: 10px; border-radius: 5px; width: fit-content; margin: 10px auto;">
+                    <p>{{ msg }}</p>
+                </div>
+            {% endif %}
+        {% endif %}
+
+        <div><br></br></div>
+        <h2 class="login-title">Login</h2>
+
+        <form action="{{ url_for('login') }}" method="post">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <input type="submit" value="Login">
+
+        </form>
+
+        <!-- Password Display -->
+        <!-- <div id="password-display" class="password-display"></div> -->
+
+    </body>
+
+</html>

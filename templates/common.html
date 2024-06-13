@@ -1,0 +1,18 @@
+<header>
+    <div style="display: flex; align-items: center;">
+        <a href="https://www.fitstic.it/" class="logo" style="font-family: 'Lucida Console', 'Courier New', monospace; text-decoration: none; color: inherit; display: flex; align-items: center;" target="_blank">
+            <img src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Logo TryHackMe - FitStic" style="max-height: 50px; max-width: 100px; margin-right: 10px;">
+        </a>        
+        <a href="{{ url_for('login') }}" style="font-family: 'Lucida Console', 'Courier New', monospace; text-decoration: none; color: inherit; margin-left: 10px;">
+            <span>   </span>
+            <span style="font-size: 27.5px;">TryHackFit</span>
+        </a>
+    </div>
+
+    <div class="header-buttons">
+        <button onclick="window.location.href='{{ url_for('signin') }}'">Registrati</button>
+        <button onclick="window.location.href='{{ url_for('test') }}'">Testa la tua password</button>
+        <button onclick="window.location.href='{{ url_for('privacy') }}'">Privacy e Policy</button>
+    </div>
+    
+</header>

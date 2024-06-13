@@ -1,0 +1,133 @@
+/* Stili comuni per l'area degli utenti */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #34495e;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 50px;
+    max-width: 100px;
+    margin-right: 10px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    text-decoration: none; /* Rimuove il sottolineato */
+}
+
+.header-buttons button {
+    background-color: #27ae60;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Rimuove il sottolineato */
+}
+
+.header-buttons button:hover {
+    background-color: #219150;
+}
+
+/* Aggiustamento dell'orario */
+.clock {
+    margin-top: 5px; /* Modifica del margine superiore */
+    margin-left: 20px;
+    font-family: 'Lucida Console', 'Courier New', monospace;
+    font-size: 18px;
+}
+
+/* Rimozione degli stili di link cliccabile */
+.header-buttons a {
+    text-decoration: none; /* Rimuove il sottolineato */
+    color: inherit; /* Utilizza il colore del testo predefinito */
+    cursor: default; /* Rimuove il cursore pointer */
+}
+
+/* Stili globali */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2c3e50;
+    color: #fff;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Stili specifici per il generatore di password */
+.border {
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.user {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding-left: 15px;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+

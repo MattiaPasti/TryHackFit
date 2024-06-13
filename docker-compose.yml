@@ -1,0 +1,59 @@
+version: '3.9'
+
+services:
+  flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app  # Monta il codice sorgente dell'applicazione nel container
+      - static_volume:/app/static  # Volume per i file statici
+      - media_volume:/app/media  # Volume per i file media
+    environment:
+      DOCKER_HOST_IP:  # Inserisci qui l'indirizzo IP del tuo host Docker
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - mynetwork
+
+  db:
+    image: mysql:latest
+    container_name: sql-db-1
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sql-db-1
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - mynetwork
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin-1
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+
+volumes:
+  db_data:
+  static_volume:
+  media_volume:

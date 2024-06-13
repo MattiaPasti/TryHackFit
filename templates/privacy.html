@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='imgs/site2.png') }}" />
+        <title>TryHackFit - Fitstic</title>
+        <link href="{{ url_for('static', filename='css/privacy.css') }}" type="text/css" rel="stylesheet">
+       
+    </head>
+
+    <body>
+        
+        {% include 'common.html' %}
+
+        <div><br></br></div>
+
+        <h1 class="login-title">Privacy & Policy</h1>
+
+        <div class="privacy-content" style="max-width: 800px; margin: 0 auto;">
+            <div class="privacy-content">
+
+                <div><br></br></div>
+
+                <h2>Chi siamo</h2>
+                <p>Il nostro indirizzo web è: <a href="{{ url_for('login') }}">Fitstic - TryHackMe</a>.</p>
+        
+                <div><br></br></div>
+
+                <h2>Commenti</h2>
+                <p>Quando i visitatori lasciano commenti sul sito, raccogliamo i dati mostrati nel modulo dei commenti, oltre all’indirizzo IP e alla stringa dell’agente utente del browser, per aiutare nella rilevazione dello spam.</p>
+                <p>Una stringa anonimizzata creata dal tuo indirizzo email (chiamata anche hash) potrebbe essere fornita al servizio Gravatar per verificare se lo stai utilizzando. La politica sulla privacy del servizio Gravatar è disponibile <a href="https://automattic.com/privacy/">qui</a>. Dopo l’approvazione del tuo commento, la tua immagine del profilo sarà visibile al pubblico nel contesto del tuo commento.</p>
+        
+                <div><br></br></div>
+
+                <h2>Media</h2>
+                <p>Se carichi immagini sul sito web, evita di caricare immagini con dati di posizione incorporati (EXIF GPS). I visitatori del sito possono scaricare ed estrarre eventuali dati di posizione dalle immagini sul sito.</p>
+        
+                <div><br></br></div>
+
+                <h2>Cookies</h2>
+                <p>Se lasci un commento sul nostro sito, puoi scegliere di salvare il tuo nome, indirizzo email e sito web nei cookie. Questi sono per la tua convenienza in modo che tu non debba compilare nuovamente i tuoi dettagli quando lasci un altro commento. Questi cookie dureranno un anno.</p>
+                <!-- Aggiungi altri paragrafi relativi ai cookies -->
+        
+                <div><br></br></div>
+
+                <h2>Contenuti incorporati da altri siti web</h2>
+                <p>Gli articoli su questo sito possono includere contenuti incorporati (ad esempio video, immagini, articoli, ecc.). I contenuti incorporati da altri siti web si comportano esattamente come se il visitatore avesse visitato l’altro sito.</p>
+                <!-- Aggiungi altri paragrafi relativi ai contenuti incorporati -->
+        
+                <div><br></br></div>
+
+                <h2>Con chi condividiamo i tuoi dati</h2>
+                <p>Se richiedi un reset della password, il tuo indirizzo IP sarà incluso nella email di reset.</p>
+                <!-- Aggiungi altri paragrafi relativi alla condivisione dei dati -->
+        
+                <div><br></br></div>
+
+                <h2>Per quanto tempo conserviamo i tuoi dati</h2>
+                <p>Se lasci un commento, il commento e i suoi metadati vengono conservati indefinitamente. Questo è fatto per riconoscere e approvare automaticamente eventuali commenti successivi anziché tenerli in una coda di moderazione.</p>
+                <!-- Aggiungi altri paragrafi relativi alla conservazione dei dati -->
+        
+                <div><br></br></div>
+
+                <h2>I tuoi diritti sui tuoi dati</h2>
+                <p>Se hai un account su questo sito o hai lasciato commenti, puoi richiedere di ricevere un file esportato dei dati personali che abbiamo su di te, inclusi tutti i dati che ci hai fornito. Puoi anche richiedere la cancellazione di qualsiasi dato personale che conserviamo su di te. Questo non include i dati che siamo obbligati a conservare per scopi amministrativi, legali o di sicurezza.</p>
+                <!-- Aggiungi altri paragrafi relativi ai diritti sui dati -->
+        
+                <div><br></br></div>
+
+                <h2>Dove vengono inviati i tuoi dati</h2>
+                <p>I commenti dei visitatori potrebbero essere controllati attraverso un servizio automatico di rilevazione dello spam.</p>
+                <!-- Aggiungi altri paragrafi relativi all'invio dei dati -->
+
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{{ url_for('privacy') }}" style="color: #fff;">Leggi la nostra Politica sulla Privacy completa</a>
+        </div>
+
+    </body>
+
+</html>

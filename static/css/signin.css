@@ -1,0 +1,182 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2c3e50;
+    color: #fff;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #34495e;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-buttons button {
+    background-color: #27ae60;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-buttons button:hover {
+    background-color: #219150;
+}
+
+.registration-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ecf0f1;
+}
+
+form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding-left: 15px;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 600px) {
+    form {
+        width: 90%;
+    }
+}
+
+/* Password Generation Animation */
+#password-display {
+    text-align: center;
+    font-family: monospace;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.password-match {
+    color: #27ae60;
+}
+
+.password-not-match {
+    color: #e74c3c;
+}
+
+.password-strength-weak {
+    color: #e74c3c;
+}
+
+.password-strength-strong {
+    color: #27ae60;
+}
+
+.email-valid {
+    color: #27ae60;
+}
+
+.email-not-valid {
+    color: #e74c3c;
+}
+
+.error {
+    color: white;
+    background-color: #ff6666; /* Colore rosso */
+    padding: 10px; /* Spazio interno */
+    border-radius: 5px; /* Bordo arrotondato */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombra */
+    text-align: center;
+}
+
+.error-box {
+    background-color: #ffcccc; /* Sfondo rosso */
+    border: 1px solid #ff0000; /* Bordo rosso */
+    padding: 10px; /* Spaziatura interna */
+    border-radius: 5px; /* Bordo arrotondato */
+    width: fit-content; /* Larghezza basata sul contenuto */
+    margin: 10px auto; /* Margine automatico per centrare */
+}
+
+.success {
+    color: white;
+    background-color: #66ff8f; /* Colore rosso */
+    padding: 10px; /* Spazio interno */
+    border-radius: 5px; /* Bordo arrotondato */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombra */
+    text-align: center;
+}
+
+.success-message {
+    background-color: #30d58b; /* Sfondo rosso */
+    border: 1px solid #057122; /* Bordo rosso */
+    padding: 10px; /* Spaziatura interna */
+    border-radius: 5px; /* Bordo arrotondato */
+    width: fit-content; /* Larghezza basata sul contenuto */
+    margin: 10px auto; /* Margine automatico per centrare */
+}
