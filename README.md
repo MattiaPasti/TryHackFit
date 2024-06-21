@@ -43,20 +43,33 @@ To get started with the project, follow these steps:
    flask run
    ```
 
+#### Starting the Application with Docker Compose
+Starting from this version, you can also run the application using Docker Compose. After pulling the latest changes from the repository, follow these steps:
+
+1. **Build and Start Containers:**
+   ```bash
+   docker-compose up -d --build
+   ```
+
+2. **Import SQL Files:**
+   Import SQL files into your respective DBMS instances (e.g., MySQL, PostgreSQL) using their native tools or interfaces.
+
 #### Project Functionality
 
 - **User Levels:**
   - Regular User: Access level set to `1`.
-  - Admin User: Access level set to `2` (default, after creating first user, change it to 1 from app.py #def signin()).
-
-
+  - Admin User: Access level set to `2` (default, changeable after initial user creation).
 
 - **Password Security:**
-  - **User Passwords:** User passwords are hashed using a combination of salting and peppering techniques. These passwords are then encoded and stored irreversibly to ensure high security.
-  - **Admin Passwords:** Admin passwords are encrypted using symmetric key encryption provided by the `Fernet` library from `cryptography`. This ensures that the admin passwords can be securely stored and retrieved when needed.
+  - **User Passwords:** Hashed using salting and peppering techniques for irreversible storage.
+  - **Admin Passwords:** Encrypted using `Fernet` from `cryptography` for secure storage.
 
 By following the above steps and leveraging the security measures in place, you can manage and store passwords securely within the Flask application.
 
 **Note**
 
-- This project is tested on windows environment, leveraging Xampp as local Dbsm.
+- This project is tested on Windows environment, utilizing XAMPP as the local DBMS.
+
+---
+
+Feel free to adjust any details specific to your setup or preferences. This README should now reflect the updated deployment process using Docker Compose for easier setup and management of your Flask Password Manager application.
