@@ -10,6 +10,7 @@ services:
       - "5000:5000"
     depends_on:
       - db
+      - db1
     volumes:
       - .:/app
       - static_volume:/app/static
@@ -17,33 +18,50 @@ services:
     environment:
       FLASK_APP: app.py
       FLASK_ENV: development
-      DB_HOST: db  # Usa il nome del servizio 'db'
-      DB_USER: root
-      DB_PASSWORD: root
-      DB_NAME: sql-db-1
+      DB1_HOST: db    # Primo database
+      DB1_USER: root
+      DB1_PASSWORD: root
+      DB1_NAME: sql-db-1
+      DB2_HOST: db1   # Secondo database
+      DB2_USER: root
+      DB2_PASSWORD: root
+      DB2_NAME: sql-db-2
     networks:
       - mynetwork
 
   db:
-    image: mysql:latest
+    image: mysql:5.7
     container_name: sql-db-1
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: sql-db-1
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_AUTH_PLUGIN: mysql_native_password
     ports:
       - "3306:3306"
     volumes:
-      - db_data:/var/lib/mysql
+      - db_data_1:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - mynetwork
+
+  db1:
+    image: mysql:5.7
+    container_name: sql-db-2
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sql-db-2
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data_2:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - mynetwork
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
-    container_name: phpmyadmin-1
+    container_name: phpmyadmin
     restart: always
     environment:
       PMA_HOST: db
@@ -56,10 +74,26 @@ services:
     networks:
       - mynetwork
 
+  phpmyadmin1:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin-1
+    restart: always
+    environment:
+      PMA_HOST: db1
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8081:80"
+    depends_on:
+      - db1
+    networks:
+      - mynetwork
+
 networks:
   mynetwork:
 
 volumes:
-  db_data:
+  db_data_1:
+  db_data_2:
   static_volume:
   media_volume:

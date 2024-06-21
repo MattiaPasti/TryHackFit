@@ -1,26 +1,20 @@
-# Usa l'immagine base di Python
-FROM python:3.12.1
+FROM python:3.9-slim
 
-# Imposta la variabile d'ambiente per non bufferizzare l'output
-ENV PYTHONUNBUFFERED 1
-
-# Imposta la directory di lavoro nel container
 WORKDIR /app
 
-# Copia il file requirements.txt nella directory di lavoro del container
-COPY requirements.txt /app/
+# Install necessary system packages
+RUN apt-get update && apt-get install -y \
+    default-libmysqlclient-dev \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-# Installa le dipendenze del progetto
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 
-# Copia il contenuto dell'intero progetto nella directory di lavoro del container
-COPY . /app/
+# Ensure the app directory exists and copy its content
+COPY . /app
 
-# Esponi la porta 5000 per consentire la comunicazione con l'applicazione Flask
-EXPOSE 5000
+ENV FLASK_APP=app.app
 
-# Imposta la variabile d'ambiente FLASK_APP per l'applicazione Flask
-ENV FLASK_APP=app.py
-
-# Esegui il comando per avviare il server Flask
-CMD ["python", "-m", "flask", "run", "--host=0.0.0.0", "--port=5000"]
+# Run the Flask application
+CMD ["flask", "run", "--host=0.0.0.0"]

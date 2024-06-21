@@ -32,10 +32,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `password`
+-- Struttura della tabella `Password`
 --
 
-CREATE TABLE `password` (
+CREATE TABLE `Password` (
   `id` bigint(20) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -45,29 +45,29 @@ CREATE TABLE `password` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `role`
+-- Struttura della tabella `Role`
 --
 
-CREATE TABLE `role` (
+CREATE TABLE `Role` (
   `id` bigint(20) NOT NULL,
   `role` varchar(255) NOT NULL,
   `user_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `role`
+-- Dump dei dati per la tabella `Role`
 --
 
-INSERT INTO `role` (`id`, `role`, `user_id`) VALUES
+INSERT INTO `Role` (`id`, `role`, `user_id`) VALUES
 (1, 'gAAAAABmdJ32JHAhSxFc0777S2nQ5kCOBuNfPXiD-UPaZL_0hbVqjmSndAZ2sAVUfB-8Yl8h8dXHqL2y8jTxmDxHW33AmkqH5A==', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `user`
+-- Struttura della tabella `User`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `User` (
   `id` bigint(20) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -75,19 +75,19 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `user`
+-- Dump dei dati per la tabella `User`
 --
 
-INSERT INTO `user` (`id`, `username`, `email`, `password`) VALUES
+INSERT INTO `User` (`id`, `username`, `email`, `password`) VALUES
 (1, 'Admin', 'b4a55a91a7eb9965b9e4a0167f8ba392ca352127788d71ac52f7e0dc220f7829', '1e172d906cfb9071e96ef6111a33928cf873f8253c4b6125f077059e020b09d9');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `usersalt`
+-- Struttura della tabella `UserSalt`
 --
 
-CREATE TABLE `usersalt` (
+CREATE TABLE `UserSalt` (
   `id` bigint(20) NOT NULL,
   `salt_email` varchar(255) NOT NULL,
   `salt_password` varchar(255) NOT NULL,
@@ -95,10 +95,10 @@ CREATE TABLE `usersalt` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dump dei dati per la tabella `usersalt`
+-- Dump dei dati per la tabella `UserSalt`
 --
 
-INSERT INTO `usersalt` (`id`, `salt_email`, `salt_password`, `user_id`) VALUES
+INSERT INTO `UserSalt` (`id`, `salt_email`, `salt_password`, `user_id`) VALUES
 (1, 'f97947c6afa1dd8cba0f78994dd857a5', '0760a60638374f25bffddc90a2d1ab0f', 1);
 
 --
@@ -106,30 +106,30 @@ INSERT INTO `usersalt` (`id`, `salt_email`, `salt_password`, `user_id`) VALUES
 --
 
 --
--- Indici per le tabelle `password`
+-- Indici per le tabelle `Password`
 --
-ALTER TABLE `password`
+ALTER TABLE `Password`
   ADD PRIMARY KEY (`id`),
   ADD KEY `password_user_id_fk` (`user_id`);
 
 --
--- Indici per le tabelle `role`
+-- Indici per le tabelle `Role`
 --
-ALTER TABLE `role`
+ALTER TABLE `Role`
   ADD PRIMARY KEY (`id`),
   ADD KEY `role_user_id_fk` (`user_id`);
 
 --
--- Indici per le tabelle `user`
+-- Indici per le tabelle `User`
 --
-ALTER TABLE `user`
+ALTER TABLE `User`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indici per le tabelle `usersalt`
+-- Indici per le tabelle `UserSalt`
 --
-ALTER TABLE `usersalt`
+ALTER TABLE `UserSalt`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `user_id` (`user_id`);
 
@@ -138,27 +138,27 @@ ALTER TABLE `usersalt`
 --
 
 --
--- AUTO_INCREMENT per la tabella `password`
+-- AUTO_INCREMENT per la tabella `Password`
 --
-ALTER TABLE `password`
+ALTER TABLE `Password`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `role`
+-- AUTO_INCREMENT per la tabella `Role`
 --
-ALTER TABLE `role`
+ALTER TABLE `Role`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT per la tabella `user`
+-- AUTO_INCREMENT per la tabella `User`
 --
-ALTER TABLE `user`
+ALTER TABLE `User`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT per la tabella `usersalt`
+-- AUTO_INCREMENT per la tabella `UserSalt`
 --
-ALTER TABLE `usersalt`
+ALTER TABLE `UserSalt`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -166,22 +166,22 @@ ALTER TABLE `usersalt`
 --
 
 --
--- Limiti per la tabella `password`
+-- Limiti per la tabella `Password`
 --
-ALTER TABLE `password`
-  ADD CONSTRAINT `Password_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Password`
+  ADD CONSTRAINT `Password_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `role`
+-- Limiti per la tabella `Role`
 --
-ALTER TABLE `role`
-  ADD CONSTRAINT `Role_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Role`
+  ADD CONSTRAINT `Role_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `usersalt`
+-- Limiti per la tabella `UserSalt`
 --
-ALTER TABLE `usersalt`
-  ADD CONSTRAINT `UserSalt_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `UserSalt`
+  ADD CONSTRAINT `UserSalt_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

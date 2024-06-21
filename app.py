@@ -18,20 +18,20 @@ app = Flask(__name__)
 
 app.secret_key = "cancro"
 
-# Configurazione del primo database
-app.config["MYSQL_HOST"] = "localhost"
-app.config["MYSQL_USER"] = "root"
-app.config["MYSQL_PASSWORD"] = ""
-app.config["MYSQL_DB"] = "sql-db-1"
+# Configurazione del primo database usando variabili d'ambiente
+app.config["MYSQL_HOST"] = os.getenv("DB1_HOST", "localhost")
+app.config["MYSQL_USER"] = os.getenv("DB1_USER", "root")
+app.config["MYSQL_PASSWORD"] = os.getenv("DB1_PASSWORD", "root")
+app.config["MYSQL_DB"] = os.getenv("DB1_NAME", "sql-db-1")
 
 mysql = MySQL()
 mysql.init_app(app)
 
-# Configurazione del secondo database
-app.config["MYSQL1_HOST"] = "localhost"
-app.config["MYSQL1_USER"] = "root"
-app.config["MYSQL1_PASSWORD"] = ""
-app.config["MYSQL1_DB"] = "sql-db-2"
+# Configurazione del secondo database usando variabili d'ambiente
+app.config["MYSQL1_HOST"] = os.getenv("DB2_HOST", "localhost")
+app.config["MYSQL1_USER"] = os.getenv("DB2_USER", "root")
+app.config["MYSQL1_PASSWORD"] = os.getenv("DB2_PASSWORD", "root")
+app.config["MYSQL1_DB"] = os.getenv("DB2_NAME", "sql-db-2")
 
 mysql1 = MySQL()
 mysql1.init_app(app)
@@ -72,7 +72,7 @@ def encrypt_role(role):
     cipher = Fernet(P_ROLE)
 
     # Cifra il ruolo
-    encrypted_role = cipher.encrypt(role.encode())
+    encrypted_role = cipher.encrypt(role.encode('utf-8'))
 
     # Restituisce il ruolo cifrato
     return encrypted_role
@@ -82,7 +82,7 @@ def decrypt_role(encrypted_role):
     cipher = Fernet(P_ROLE)
 
     # Decifra il ruolo
-    decrypted_role = cipher.decrypt(encrypted_role).decode()
+    decrypted_role = cipher.decrypt(encrypted_role.encode('utf-8')).decode('utf-8')
 
     # Restituisce il ruolo decifrato
     return decrypted_role
