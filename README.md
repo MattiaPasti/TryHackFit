@@ -69,7 +69,3 @@ By following the above steps and leveraging the security measures in place, you 
 **Note**
 
 - This project is tested on Windows environment, utilizing XAMPP as the local DBMS.
-
----
-
-Feel free to adjust any details specific to your setup or preferences. This README should now reflect the updated deployment process using Docker Compose for easier setup and management of your Flask Password Manager application.
