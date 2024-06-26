@@ -16,7 +16,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-app.secret_key = "cancro"
+app.secret_key = "9a060b48d913a71b051da72bae5b2fdb83dec885a64f4e62d551e01da07caee9"
 
 # Configurazione del primo database usando variabili d'ambiente
 app.config["MYSQL_HOST"] = os.getenv("DB1_HOST", "localhost")
