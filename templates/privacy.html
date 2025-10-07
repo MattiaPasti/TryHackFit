@@ -2,151 +2,130 @@
 
 <html lang="en">
 
-    <head>
+<head>
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" href="{{ url_for('static', filename='imgs/site2.png') }}" />
-        <title>TryHackFit - Fitstic</title>
-        <link href="{{ url_for('static', filename='css/privacy.css') }}" type="text/css" rel="stylesheet">
-       
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='imgs/site2.png') }}" />
+    <title>TryHackFit - Open Version</title>
+    <link href="{{ url_for('static', filename='css/privacy.css') }}" type="text/css" rel="stylesheet">
 
-    <body>
-        
-        {% include 'common.html' %}
+</head>
 
-        <div><br></br></div>
+<body>
 
-        <h1 class="login-title">Privacy Policy</h1>
+    {% include 'common.html' %}
 
-        <div class="privacy-content" style="max-width: 800px; margin: 0 auto;">
-            <div class="privacy-content">
+    <div><br></br></div>
 
-                <div><br></br></div>
+    <h1 class="login-title">Privacy & Cookie Policy</h1>
 
-                <h2>Chi siamo</h2>
-                <p>Il nostro indirizzo web è: <a href="{{ url_for('login') }}">Fitstic - TryHackMe</a>.</p>
-                <p>La presente Privacy Policy descrive come TryHackFit (di seguito "Nostra Azienda", "Noi" o "Il Gestionale") raccoglie, utilizza e protegge i dati personali degli utenti in conformità con il Regolamento Generale sulla Protezione dei Dati (GDPR) (Regolamento UE 2016/679).</p>
-        
-                <div><br></br></div>
+    <div class="privacy-content" style="max-width: 800px; margin: 0 auto;">
+        <div class="privacy-content">
 
-                <h2>Dati Raccolti</h2>
-                <ul>
-                    <p>
-                        <li>Username: L'unico dato salvato in chiaro.</li>
-                        <li>Password: Completamente criptate e accessibili solo agli utenti una volta loggati.</li>
-                        <li>Email e Password degli Account: Criptate in maniera irreversibile, senza possibilità di decriptazione.</li>
-                    </p>
-                </ul>
-        
-                <div><br></br></div>
+            <div><br></br></div>
 
-                <h2>Base Giuridica del Trattamento</h2>
-                <p>Il trattamento dei dati personali degli utenti avviene sulla base del consenso dell'utente (Art. 6(1)(a) GDPR) per quanto riguarda l'uso dei cookie e su altre basi legali pertinenti, come l'esecuzione di un contratto (Art. 6(1)(b) GDPR) per quanto riguarda la gestione degli account.</p>
-        
-                <div><br></br></div>
+            <h2>Disclaimer</h2>
+            <p>Progetto studentesco dimostrativo, creato a scopo didattico e senza fini commerciali.
+                I contenuti sono forniti “così come sono”, senza garanzie di alcun tipo.</p>
 
-                <h2>Utilizzo dei Dati</h2>
-                <p>I dati raccolti vengono utilizzati esclusivamente per fornire e migliorare il servizio di gestione delle password. Gli amministratori del sistema hanno accesso solo ai log per verificare l'integrità del database, senza poter visualizzare alcuna informazione ad eccezione dell'username.</p>
-                <!-- Aggiungi altri paragrafi relativi ai cookies -->
-        
-                <div><br></br></div>
 
-                <h2>Sicurezza dei Dati</h2>
-                <p>Adottiamo misure di sicurezza tecniche e organizzative adeguate per proteggere i dati personali degli utenti da accessi non autorizzati, perdita o distruzione. Le password e le email sono criptate in modo irreversibile.</p>
-                <!-- Aggiungi altri paragrafi relativi ai contenuti incorporati -->
-        
-                <div><br></br></div>
+            <h2>Marchi</h2>
+            <p>I marchi citati appartengono ai rispettivi proprietari.
+                Non esiste alcuna affiliazione, approvazione o sponsorizzazione.</p>
 
-                <h2>Diritti degli Utenti</h2>
-                <p>
-                    Gli utenti hanno il diritto di:
-                   <ul>
-                        <li>Richiedere l'accesso ai propri dati personali (Art. 15 GDPR).</li>
-                        <li>Chiedere la rettifica (Art. 16 GDPR) o la cancellazione (Art. 17 GDPR) dei propri dati personali.</li>
-                        <li>Opporsi al trattamento dei propri dati personali (Art. 21 GDPR).</li>
-                        <li>Richiedere la limitazione del trattamento dei propri dati personali (Art. 18 GDPR).</li>
-                        <li>Ricevere i dati personali forniti a Nostra Azienda in un formato strutturato, di uso comune e leggibile da dispositivo automatico, nonché trasmettere tali dati a un altro titolare del trattamento (portabilità dei dati) (Art. 20 GDPR).</li>
-                   </ul> 
-                </p>
-                <!-- Aggiungi altri paragrafi relativi alla condivisione dei dati -->
-        
-                <div><br></br></div>
+            <h2>Uso</h2>
+            <p>È vietato il riutilizzo dei contenuti per scopi commerciali.
+                L’uso è consentito esclusivamente per consultazione e studio.</p>
 
-                <h2>Cancellazione degli Account</h2>
-                <p>Gli amministratori del DBMS possono eseguire la cancellazione degli account su richiesta dell'utente, nel rispetto dei tempi di conservazione dei dati stabiliti dalla legge applicabile e necessari per scopi legittimi, come la difesa legale (Art. 17 GDPR).</p>
-                <!-- Aggiungi altri paragrafi relativi alla conservazione dei dati -->
-        
-                <div><br></br></div>
+            <h2>Contatti</h2>
+            <p>Per segnalazioni scrivere a: <a href="mailto:pastimattia772@gmail.com">pastimattia772@gmail.com</a></p>
+            <p>© 2025 — Progetto Studentesco • Disclaimer</p>
 
-                <h2>Modifiche alla Privacy Policy</h2>
-                <p>Ci riserviamo il diritto di modificare la presente Privacy Policy in qualsiasi momento. Le modifiche saranno comunicate agli utenti tramite email o notifica all'interno del gestionale, quando richiesto dalla legge applicabile (Art. 13 e 14 GDPR).</p>
-                <!-- Aggiungi altri paragrafi relativi ai diritti sui dati -->
-        
-                <div><br></br></div>
+            <div><br></br></div>
 
-                <h2>Contatti</h2>
-                <p>Per qualsiasi domanda o richiesta relativa alla presente Privacy Policy, gli utenti possono contattarci all'indirizzo email: <a href="mailto:info@fitstic.it">info@fitstic.it</a>.</p>
-                <!-- Aggiungi altri paragrafi relativi all'invio dei dati -->
+            <h1>Informativa Privacy</h1>
+            <h2>Titolare del trattamento</h2>
+            <p>Mattia Pasti
+                Email: <a href="mailto:pastimattia772@gmail.com">pastimattia772@gmail.com</a></p>
 
-            </div>
+            <h2>Dati trattati</h2>
+            <p>
+                <li>Dati tecnici di navigazione (es. IP, log errori) utilizzati solo a fini di sicurezza e diagnostica.
+                </li>
+                <li>Cookie tecnici / localStorage (es. preferenze banner). Nessun cookie di profilazione.</li>
+                <li>Dati di contatto (solo se ci scrivi volontariamente via email o form).</li>
+            </p>
+
+            <h2>Finalità</h2>
+            <p>
+                <li>Dimostrazione didattica / portfolio personale.</li>
+                <li>Sicurezza tecnica e diagnostica del sito.</li>
+                <li>Gestione di contatti volontari inviati dall’utente.</li>
+            </p>
+
+            <h2>Base giuridica</h2>
+            <p>
+                <li>Consenso dell’utente (Art. 6(1)(a) GDPR) per l’uso di cookie non essenziali.</li>
+                <li>Legittimo interesse (Art. 6(1)(f) GDPR) per la sicurezza tecnica.</li>
+                <li>Necessità di dare seguito a richieste volontarie (Art. 6(1)(b) GDPR).</li>
+            </p>
+
+            <h2>Diritti degli utenti</h2>
+            <p>Hai il diritto di:</p>
+            <p>
+                <li>chiedere accesso ai tuoi dati (Art. 15 GDPR);</li>
+                <li>richiederne rettifica o cancellazione (Art. 16-17 GDPR);</li>
+                <li>limitare o opporti al trattamento (Art. 18-21 GDPR);</li>
+                <li>esercitare il diritto alla portabilità (Art. 20 GDPR).</li>
+            </p>
+            <p>Per esercitare i tuoi diritti, scrivi a: <a
+                    href="mailto:pastimattia772@gmail.com">pastimattia772@gmail.com</a></p>
+
+            <div><br></br></div>
+
+            <h1>Cookie Policy</h1>
+            <h2>Cosa sono i cookie</h2>
+            <p>I cookie sono piccoli file di testo che il sito può memorizzare sul dispositivo dell’utente per garantire
+                funzionalità tecniche e migliorare l’esperienza di navigazione.</p>
+
+            <h2>Tipi di cookie utilizzati</h2>
+            <p>
+                <li>Cookie tecnici: necessari al funzionamento del sito (es. preferenze utente, sicurezza).</li>
+                <li>Cookie di analisi (eventuali): utilizzati in forma anonima e solo a fini statistici/didattici.</li>
+            </p>
+            <p>Non vengono utilizzati cookie di profilazione o per fini pubblicitari.</p>
+
+            <h2>Gestione dei cookie</h2>
+            <p>Puoi gestire o disabilitare i cookie tramite le impostazioni del tuo browser.
+                La disabilitazione dei cookie tecnici può compromettere alcune funzionalità del sito.</p>
+            <div><br></br></div>
+
+            <h2>Sicurezza dei Dati</h2>
+            <p>Il sito adotta misure tecniche e organizzative per proteggere i dati da accessi non autorizzati, perdita
+                o distruzione.
+                Le eventuali password e dati sensibili utilizzati in ambienti dimostrativi sono trattati solo a scopo
+                didattico, mai in chiaro, e non possono essere recuperati dagli amministratori.</p>
+
+            <div><br></br></div>
+
+            <h2>Modifiche alla Privacy Policy</h2>
+            <p>
+                Il titolare si riserva la possibilità di modificare in qualsiasi momento la presente informativa.
+                Le modifiche saranno pubblicate su questa pagina.
+            </p>
+
+            <div><br></br></div>
+
+            <p>© 2025 — Progetto Studentesco • Privacy & Cookie Policy</p>
+
         </div>
+    </div>
 
-        <div><br></br></div>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{{ url_for('privacy') }}" style="color: #fff;">Leggi la nostra Politica sulla Privacy completa</a>
+    </div>
 
-        <h1 class="login-title">Cookie Policy</h1>
-
-        <div class="privacy-content" style="max-width: 800px; margin: 0 auto;">
-            <div class="privacy-content">
-
-                <div><br></br></div>
-
-                <h2>Introduzione</h2>
-                <p>La presente Cookie Policy descrive come [Nome del Gestionale] utilizza i cookie e tecnologie simili per raccogliere e memorizzare informazioni quando gli utenti visitano il nostro sito web.</p>
-        
-                <div><br></br></div>
-
-                <h2>Cosa sono i Cookie</h2>
-                <p>I cookie sono piccoli file di testo che vengono memorizzati sul dispositivo dell'utente quando visita un sito web. I cookie aiutano a migliorare l'esperienza dell'utente e a fornire servizi personalizzati.</p>
-
-                <div><br></br></div>
-
-                <h2>Tipi di Cookie Utilizzati</h2>
-                <ul>
-                    <p>
-                        <li>Cookie Tecnici: Necessari per il funzionamento del sito web e per garantire la sicurezza del servizio.</li>
-                        <li>Cookie di Analisi: Utilizzati per raccogliere informazioni anonime sull'uso del sito web e migliorare i nostri servizi.</li>
-                    </p>
-                </ul>
-        
-                <div><br></br></div>
-
-                <h2>Gestione dei Cookie</h2>
-                <p>Gli utenti possono gestire le preferenze relative ai cookie tramite le impostazioni del proprio browser. È possibile disabilitare i cookie, ma ciò potrebbe influire sulla funzionalità del sito web.</p>
-
-                <div><br></br></div>
-
-                <h2>Base Giuridica per l'Uso dei Cookie</h2>
-                <p>Per quanto riguarda i cookie tecnici, l'utilizzo è necessario per il funzionamento del sito web (Art. 6(1)(f) GDPR). Per i cookie di analisi, l'uso è basato sul consenso dell'utente (Art. 6(1)(a) GDPR).</p>
-                
-                <div><br></br></div>
-
-                <h2>Modifiche alla Cookie Policy</h2>
-                <p>Ci riserviamo il diritto di modificare la presente Cookie Policy in qualsiasi momento. Le modifiche saranno comunicate agli utenti tramite email o notifica all'interno del gestionale, quando richiesto dalla legge applicabile.</p>
-
-                <div><br></br></div>
-
-                <h2>Contatti</h2>
-                <p>Per qualsiasi domanda o richiesta relativa alla presente Cookie Policy, gli utenti possono contattarci all'indirizzo email: <a href="mailto:info@fitstic.it">info@fitstic.it</a>.</p>
-
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="{{ url_for('privacy') }}" style="color: #fff;">Leggi la nostra Politica sulla Privacy completa</a>
-        </div>
-
-    </body>
+</body>
 
 </html>

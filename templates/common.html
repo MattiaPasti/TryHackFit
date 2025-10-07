@@ -1,11 +1,15 @@
 <header>
     <div style="display: flex; align-items: center;">
-        <a href="https://www.fitstic.it/" class="logo" style="font-family: 'Lucida Console', 'Courier New', monospace; text-decoration: none; color: inherit; display: flex; align-items: center;" target="_blank">
-            <img src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Logo TryHackMe - FitStic" style="max-height: 50px; max-width: 100px; margin-right: 10px;">
-        </a>        
-        <a href="{{ url_for('login') }}" style="font-family: 'Lucida Console', 'Courier New', monospace; text-decoration: none; color: inherit; margin-left: 10px;">
-            <span>   </span>
-            <span style="font-size: 27.5px;">TryHackFit</span>
+        <a href="https://mattiapasti.com" class="logo"
+            style="font-family: 'Lucida Console', 'Courier New', monospace; text-decoration: none; color: inherit; display: flex; align-items: center;"
+            target="_blank">
+            <img src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Logo TryHackMe - Open Version"
+                style="max-height: 50px; max-width: 100px; margin-right: 10px;">
+        </a>
+        <a href="{{ url_for('login') }}"
+            style="font-family: 'Lucida Console', 'Courier New', monospace; text-decoration: none; color: inherit; margin-left: 10px;">
+            <span> </span>
+            <span style="font-size: 27.5px;">TryHackFit - Open Version</span>
         </a>
     </div>
 
@@ -14,5 +18,172 @@
         <button onclick="window.location.href='{{ url_for('test') }}'">Testa la tua password</button>
         <button onclick="window.location.href='{{ url_for('privacy') }}'">Privacy e Cookie</button>
     </div>
-    
+
 </header>
+
+<body>
+    <!-- DISCLAIMER BANNER – Student Project (no Tailwind needed) -->
+    <style>
+        #edu-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            padding: 12px;
+        }
+
+        #edu-banner .card {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+            padding: 16px;
+        }
+
+        #edu-banner .row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        #edu-banner .icon {
+            margin-top: 2px;
+            color: #374151
+        }
+
+        #edu-banner .text {
+            color: #1f2937;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif
+        }
+
+        #edu-banner p {
+            margin: 0
+        }
+
+        #edu-banner .muted {
+            font-size: .9rem;
+            line-height: 1.35;
+            margin-top: 6px
+        }
+
+        #edu-banner .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px
+        }
+
+        #edu-banner .links a {
+            font-size: .9rem;
+            text-decoration: underline;
+            color: #2563eb
+        }
+
+        #edu-banner .links a:hover {
+            color: #1d4ed8
+        }
+
+        #edu-banner .ok {
+            margin-left: 8px;
+            border: 0;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: .9rem;
+            font-weight: 600;
+            background: #2563eb;
+            color: #fff;
+            cursor: pointer;
+            transition: .15s
+        }
+
+        #edu-banner .ok:hover {
+            background: #1d4ed8
+        }
+
+        @media (max-width:640px) {
+            #edu-banner .row {
+                flex-direction: column
+            }
+        }
+    </style>
+
+    <div id="edu-banner" hidden>
+        <div class="card" role="region" aria-label="Banner informativo">
+            <div class="row">
+                <!-- Icona -->
+                <div class="icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" style="opacity:.8">
+                        <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle>
+                        <line x1="12" y1="8" x2="12" y2="13" stroke-width="1.5"></line>
+                        <circle cx="12" cy="16.5" r="1" stroke-width="1.5"></circle>
+                    </svg>
+                </div>
+
+                <!-- Testo -->
+                <div class="text">
+                    <p style="font-weight:600">Progetto studentesco — solo dimostrazione</p>
+                    <p class="muted">
+                        Questo sito è un <strong>prototipo a scopo didattico</strong>, senza fini commerciali.
+                        È fornito “così com’è”, senza garanzie; i marchi citati appartengono ai rispettivi proprietari
+                        e <strong>non esiste alcuna affiliazione</strong>. I contenuti potrebbero essere incompleti o
+                        imprecisi. Se qualcosa ti riguarda e vuoi la rimozione, contattami.
+                    </p>
+                    <p class="muted" style="margin-top:6px; color:#b91c1c; font-weight:500;">
+                        ⚠️ <strong>Sicurezza delle password:</strong> non inserire né salvare password personali, poiché
+                        tutto ciò che viene immesso è considerato di <strong>dominio pubblico</strong>.
+                        Le password di test e gli account creati (incluso l’account admin/email/password) vengono
+                        <strong>cancellati automaticamente ogni 60 minuti</strong>.
+                    </p>
+
+                    <div class="links">
+                        <a href="/privacy" target="_blank" rel="noopener noreferrer">Leggi il disclaimer Privacy</a>
+                        <a href="https://mattiapasti.com" target="_blank" rel="noopener noreferrer">Sito principale</a>
+                        <a href="https://www.linkedin.com/in/mattia-pasti-68a91a178" target="_blank"
+                            rel="noopener noreferrer">Guarda il mio curriculum</a>
+                        <a href="https://github.com/MattiaPasti" target="_blank" rel="noopener noreferrer">Guarda altri
+                            progetti</a>
+                    </div>
+                </div>
+
+                <!-- Bottone OK -->
+                <button type="button" class="ok" data-close aria-label="Chiudi banner">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        ; (function () {
+            const KEY = 'eduBannerAck';
+
+            function getStatus() {
+                try { return JSON.parse(localStorage.getItem(KEY))?.status || null; }
+                catch { return null; }
+            }
+            function setStatus(status) {
+                try { localStorage.setItem(KEY, JSON.stringify({ status })); } catch { }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const banner = document.getElementById('edu-banner');
+                if (!banner) return;
+
+                if (getStatus() !== 'accepted') banner.hidden = false;
+
+                const okBtn = banner.querySelector('[data-close]');
+                if (okBtn) okBtn.addEventListener('click', () => {
+                    setStatus('accepted');
+                    banner.remove();
+                });
+
+                banner.addEventListener('keydown', e => {
+                    if (e.key === 'Escape') banner.remove();
+                });
+            });
+        })();
+    </script>
+
+</body>

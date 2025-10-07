@@ -813,6 +813,11 @@ def log_action_error3(user_id, username, action, error_description):
 @role_required('admin')
 def delete_user(user_id):
     try:
+        
+        if user_id == 1:
+            msg = f"Impossibile eliminare un utente così bello."
+            return redirect(url_for('admin_panel', msg=msg))
+        
         # Elimina l'utente dal database
         conn = get_db_connection()
         cursor = conn.cursor()
@@ -1017,6 +1022,37 @@ def log_action_error1(user_id, username, action, error_description):
     except Exception as e:
         # Log the error in case of failure
         print(f"Error logging action error: {action} - {str(e)}")
-    
+        
+# --- SIMPLE PERIODIC WIPE: svuota la tabella Password ogni 5 secondi ---
+import threading
+import time
+import traceback
+
+WIPE_INTERVAL = 3600  # secondi
+
+def periodic_wipe_loop():
+    print(f"[WIPE] periodic wipe thread started, interval={WIPE_INTERVAL}s")
+    while True:
+        try:
+            # get_db_connection() deve esistere nel tuo app.py e restituire una connessione DB
+            conn = get_db_connection()
+            cur = conn.cursor()
+            # Esegui la cancellazione massiva
+            cur.execute("DELETE FROM Password;")
+            conn.commit()
+            cur.close()
+            conn.close()
+            print(f"[WIPE] Deleted all rows from Password at {time.strftime('%Y-%m-%d %H:%M:%S')}")
+        except Exception as e:
+            print(f"[WIPE][ERROR] {e}")
+            traceback.print_exc()
+        # attendi l'intervallo definito
+        time.sleep(WIPE_INTERVAL)
+
+# Avvia il thread daemon (non blocca l'app principale)
+wipe_thread = threading.Thread(target=periodic_wipe_loop, name="periodic-wipe-thread", daemon=True)
+wipe_thread.start()
+# --- fine periodic wipe ---
+
 if __name__ == "__main__":
     app.run(debug=True)
