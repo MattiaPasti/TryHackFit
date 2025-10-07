@@ -1,71 +1,195 @@
-### Project Description: Flask Password Manager
+# 🔎 **TryHackFit — Open Demo** (Flask Password Manager)
 
-#### Introduction
-This project utilizes Flask, a lightweight web framework for Python, to create a secure password manager. The password manager allows for the creation of users with different access levels and ensures password security through advanced hashing and encryption techniques.
+[![Python](https://img.shields.io/badge/Python-3.9-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-2.0.1-black?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![Docker](https://img.shields.io/badge/Docker-24.0-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Live Demo](https://img.shields.io/badge/🌍_Live_Demo-TryHackFit-2E7D32?style=for-the-badge&logo=globe&logoColor=white)](https://tryme.mattiapasti.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-#### Basic Commands to Start the Project
-To get started with the project, follow these steps:
+---
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/yourusername/flask-password-manager.git
-   cd flask-password-manager
-   ```
+## 📌 Overview
+TryHackFit is a lightweight Flask-based web application designed as an **educational** password manager demo. The app shows basic flows for user roles, password testing, and ephemeral storage behavior. It is container-ready and can be run locally or with Docker.
 
-2. **Create a Virtual Environment:**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate   # On Windows, use `venv\Scripts\activate`
-   ```
+> **Important:** This project is a demo. Do **not** use real or sensitive credentials with this app. Demo data may be visible or cleared automatically. See the Security section.
 
-3. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+---
 
-4. **Set Environment Variables:**
-   Create a `.env` file in the project root with the following content:
-   ```plaintext
-   FLASK_APP=app.py
-   FLASK_ENV=development
-   SECRET_KEY=your_secret_key
-   ```
+## ✨ Features
+- Simple Flask backend with templated UI and static assets.
+- Role-based UI: two demonstration roles (Role 1, Role 2) with different permissions.
+- Demo storage for passwords (ephemeral) — intended for testing only.
+- Background watcher that periodically clears the `Password` table to keep demo data transient.
+- Docker Compose & Dockerfile for easy deployment.
+- Clear privacy/disclaimer pages included.
 
-5. **Initialize the Database:**
-   ```bash
-   flask db init
-   flask db migrate
-   flask db upgrade
-   ```
+---
 
-6. **Run the Application:**
-   ```bash
-   flask run
-   ```
+## 🛠 Tech Stack
+- **Backend:** Python, Flask, Gunicorn
+- **Frontend:** HTML, CSS, Vanilla JavaScript
+- **Database:** SQL (configurable via `get_db_connection()` in `app.py`)
+- **Deployment:** Docker & Docker Compose
 
-#### Starting the Application with Docker Compose
-Starting from this version, you can also run the application using Docker Compose. After pulling the latest changes from the repository, follow these steps:
+---
 
-1. **Build and Start Containers:**
-   ```bash
-   docker-compose up -d --build
-   ```
+## 🚦 Roles (demo)
+This project includes two sample roles to demonstrate how the UI and permissions change for different users.
 
-2. **Import SQL Files:**
-   Import SQL files into your respective DBMS instances (e.g., MySQL, PostgreSQL) using their native tools or interfaces.
+- **Role 1 — Regular User**
+  - Typical demo user.
+  - Can log in, store and retrieve demo passwords in the testing area.
+  - Intended for showing the per-user flows and UI of the app.
+  - **WARNING:** Do not store your real credentials — demo passwords are ephemeral and considered public for the demo.
 
-#### Project Functionality
+- **Role 2 — Admin**
+  - Elevated demo role with additional UI features (management pages, overview).
+  - Can view aggregated demo data and perform admin-only demo actions (for testing).
+  - Admin accounts are for demonstration — do not use real accounts or admin credentials in public demos.
 
-- **User Levels:**
-  - Regular User: Access level set to `1`.
-  - Admin User: Access level set to `2` (default, changeable after initial user creation).
+> These role labels are for demo/learning only. Implementations for production must include proper authentication, MFA, logging, and least-privilege DB accounts.
 
-- **Password Security:**
-  - **User Passwords:** Hashed using salting and peppering techniques for irreversible storage.
-  - **Admin Passwords:** Encrypted using `Fernet` from `cryptography` for secure storage.
+---
 
-By following the above steps and leveraging the security measures in place, you can manage and store passwords securely within the Flask application.
+## Repository structure
+```
+C:.
+├── .env
+├── app.py
+├── docker-compose.yml
+├── Dockerfile
+├── README.md
+├── requirements.txt
+├── sql-db-1.sql
+├── sql-db-2.sql
+├── db/
+│   └── init.sql
+├── media/
+├── static/
+│   ├── css/
+│   │   ├── common_admin.css
+│   │   ├── common_user.css
+│   │   ├── index_admin.css
+│   │   ├── index_user.css
+│   │   ├── login.css
+│   │   ├── password_test.css
+│   │   ├── privacy.css
+│   │   └── signin.css
+│   ├── imgs/
+│   │   ├── logo.png
+│   │   ├── site1.png
+│   │   └── site2.png
+│   └── js/
+│       ├── common_admin.js
+│       ├── index_user.js
+│       ├── login.js
+│       ├── password_test.js
+│       └── signin.js
+└── templates/
+    ├── common.html
+    ├── common_admin.html
+    ├── common_user.html
+    ├── index_admin.html
+    ├── index_user.html
+    ├── login.html
+    ├── password_test.html
+    ├── privacy.html
+    └── signin.html
+```
 
-**Note**
+---
 
-- This project is tested on Windows environment, utilizing XAMPP as the local DBMS.
+## 🚀 Getting started
+
+### Prerequisites
+- Python 3.9+ (3.10 recommended)
+- pip
+- (Optional) Docker & Docker Compose
+- A SQL-compatible DB (MySQL/Postgres/SQLite). Configure connection inside `app.py` via `get_db_connection()`.
+
+### Quick local setup
+```bash
+git clone https://github.com/MattiaPasti/TryHackFit.git
+cd TryHackFit
+
+python3 -m venv venv
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+### Run (development)
+```bash
+# from project root
+python app.py
+# Open http://localhost:5000
+```
+
+### Run with Docker
+```bash
+docker compose up --build -d
+# Open http://localhost:8000 (or the port defined in docker-compose)
+```
+
+---
+
+## 🔁 Watcher: automatic password cleanup (demo behavior)
+To keep demo data transient, a simple watcher runs in a background thread that **periodically deletes all rows** from the `Password` table.
+
+- **Default interval (public demo commit):** 3600 seconds (1 hour).  
+  You can change it via the environment variable `WIPE_INTERVAL` (seconds) or edit the watcher block in `app.py`.
+
+- **To disable the watcher:**
+  1. Remove or comment out the watcher block located **before** the `if __name__ == "__main__":` block in `app.py`.  
+     OR
+  2. Configure the watcher guard (if present) — e.g., `WIPE_ENABLED=false` — and restart the app.
+
+> **WARNING:** The watcher executes `DELETE FROM Password;`. This is destructive and irreversible. Only use it in demo/test environments.
+
+---
+
+## 🔒 Security & privacy notes
+- **Do NOT** enter real passwords, personal accounts, or sensitive data into this demo.
+- Demo data is ephemeral and intended for testing — assume it is publicly visible or will be removed.
+- The repository is **not** production-ready. If you plan to make a production version:
+  - Use secure secret management (do not commit `.env`).
+  - Use least-privileged DB users.
+  - Protect admin actions with authentication & audit trails.
+  - Replace destructive background jobs with scheduled, auditable tasks or protected admin endpoints.
+  - Add HTTPS, strong auth, and monitoring.
+
+---
+
+## 🌍 Live Demo
+You can try the public demo at: **https://tryme.mattiapasti.com**  
+
+---
+
+## 📸 Screenshots
+
+<img width="1885" height="928" alt="Screenshot 2025-10-07 125813" src="https://github.com/user-attachments/assets/934a0d60-1652-489c-8044-faeef03ec951" />
+<img width="1886" height="927" alt="Screenshot 2025-10-07 125753" src="https://github.com/user-attachments/assets/36c896f4-60d1-4bfd-b6bf-003292ad9cb7" />
+
+---
+
+## 🧩 Contributing
+Contributions are welcome for:
+- improving security and separating demo code from production code,
+- adding configuration flags for the watcher (enable/disable, token-based triggers),
+- adding tests and CI for non-destructive behavior.
+
+Please file issues or pull requests with clear descriptions.
+
+---
+
+## 📜 License
+MIT License — see `LICENSE` for details.
+
+---
+
+## ✉️ Contact
+Author: **Mattia Pasti** — pastimattia772@gmail.com
+
+---
+
+⚡ Built with ❤️ for educational purposes and portfolio demonstrations.
